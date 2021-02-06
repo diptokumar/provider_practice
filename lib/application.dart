@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_practice/models/faves_model.dart';
 import 'package:provider_practice/models/films.dart';
 import 'package:provider_practice/pages/faves_page.dart';
 import 'package:provider_practice/pages/films_page.dart';
@@ -26,7 +27,8 @@ class _ApplicationState extends State<Application> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider(builder: (context) => FilmsModel(),)
+        Provider(builder: (context) => FilmsModel(),),
+        ChangeNotifierProxyProvider<FilmsModel , FavesModel>(builder: (context, films, previousfaves)=> FavesModel(films, previousfaves),)
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

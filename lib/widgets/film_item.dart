@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_practice/models/films.dart';
+import 'package:provider_practice/widgets/fave_button.dart';
 
 class FilmItem extends StatelessWidget {
   final int id;
@@ -22,6 +23,7 @@ class FilmItem extends StatelessWidget {
           backgroundColor: film.backgroundColor,
           child: Text(film.episodeId.toString(),style: filmNumberStyle,),
         ),
+        trailing: FaveButton(film: film,),
       ),
     );
   }
