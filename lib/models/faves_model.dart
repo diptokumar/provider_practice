@@ -7,9 +7,11 @@ class FavesModel extends ChangeNotifier {
 
   FavesModel(this._film, FavesModel previous)
       : assert(_film != null),
-        _episodeIds = previous?._episodeIds ?? [];
+        _episodeIds = previous?._episodeIds ?? [];  // ?? null aware operator
 
   List<Film> get films => _episodeIds.map((e) => _film.getById(e)).toList();
+
+
   Film getbyposition(int position) => films[position];
 
   void add(Film film) {
@@ -21,4 +23,5 @@ class FavesModel extends ChangeNotifier {
     _episodeIds.remove(film.episodeId);
     notifyListeners();
   }
+  int get length => _episodeIds.length;
 }

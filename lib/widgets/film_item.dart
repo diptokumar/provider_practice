@@ -6,7 +6,7 @@ import 'package:provider_practice/widgets/fave_button.dart';
 class FilmItem extends StatelessWidget {
   final int id;
 
-  const FilmItem(this.id, {Key key}) : super(key: key);
+  const FilmItem(this.id);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,14 @@ class FilmItem extends StatelessWidget {
         title: Text(film.name, style: filmNameStyle),
         leading: CircleAvatar(
           backgroundColor: film.backgroundColor,
-          child: Text(film.episodeId.toString(),style: filmNumberStyle,),
+          child: Text(
+            film.episodeId.toString(),
+            style: filmNumberStyle,
+          ),
         ),
-        trailing: FaveButton(film: film,),
+        trailing: FaveButton(
+          film: film,
+        ),
       ),
     );
   }
